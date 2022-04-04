@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.feature.featurePlay.PlayFramgent">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.visarut.fivecard.view.feature.featurePlay.PlayFramgentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/text_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello play fragment"
+            android:layout_above="@+id/button_update_card"
+            android:layout_centerInParent="true" />
+
+        <Button
+            android:id="@+id/button_update_card"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="update card" />
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/epoxy_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/button_update_card"
+            android:layout_margin="16dp"
+            />
+
+    </RelativeLayout>
+
+</layout>

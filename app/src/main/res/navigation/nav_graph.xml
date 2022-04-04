@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home2">
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.visarut.fivecard.view.feature.featureHome.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_home2_to_playFramgent"
+            app:destination="@id/playFramgent" />
+    </fragment>
+    <fragment
+        android:id="@+id/playFramgent"
+        android:name="com.visarut.fivecard.view.feature.featurePlay.PlayFramgent"
+        android:label="play_framgent_fragment"
+        tools:layout="@layout/play_frament" />
+</navigation>
