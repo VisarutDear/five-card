@@ -21,7 +21,8 @@ class PlayFramgentViewModel(
 
     fun updateCard() {
         cardList.value = getRandomCardUseCase.getRandomCard(20)
-        Log.d("test","${cardList.value}")
+        mockPlayerAndCard()
+//        Log.d("test","${cardList.value}")
     }
 
     fun mockPlayerAndCard() {
