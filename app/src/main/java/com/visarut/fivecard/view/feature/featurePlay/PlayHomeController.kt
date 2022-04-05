@@ -3,32 +3,45 @@ package com.visarut.fivecard.view.feature.featurePlay
 import com.airbnb.epoxy.TypedEpoxyController
 import com.airbnb.epoxy.carousel
 import com.visarut.fivecard.*
-import com.visarut.fivecard.domain.model.CardData
+import com.visarut.fivecard.domain.model.PlayerData
 
-class PlayHomeController() : TypedEpoxyController<CardData>() {
+class PlayHomeController() : TypedEpoxyController<PlayerData>() {
+    
+    override fun buildModels(data: PlayerData?) {
+        val playerMap = data?.playerList?.value?.mapIndexed { index, player ->
+            PlayerNameBindingModel_().apply {
+                id("player${index}")
+                name(player.name)
+            }
 
-
-    override fun buildModels(data: CardData?) {
-        val cardMap = data?.cardList?.value?.mapIndexed{ index, card ->
-            CardDeckBindingModel_().apply {
-                id("card$index")
-                number(card.number)
-                suit(card.suit)
+            player.cardList.mapIndexed { index2, card ->
+                CardDeckBindingModel_().apply {
+                    id("card${index2}_${player.name}")
+                    number(card.number)
+                    suit(card.suit)
+                }
             }
         }
 
-
-        test {
-            id("test")
-        }
-
-        carousel {
-            id("card_carousel")
-            cardMap?.let{
-                models(
-                    it
-                )
+        data?.playerList?.value?.mapIndexed { index, player ->
+            playerName {
+                id("player${index}")
+                name(player.name)
             }
+
+            carousel {
+                id("carousel_$index")
+                player.cardList.mapIndexed { index2, card ->
+                    CardDeckBindingModel_().apply {
+                        id("card_player_${index2}")
+                        number(card.number)
+                        suit(card.suit)
+                    }
+                }.apply {
+                    models(this)
+                }
+            }
+
         }
 
     }

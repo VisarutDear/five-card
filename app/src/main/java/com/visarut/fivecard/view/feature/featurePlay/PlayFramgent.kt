@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.visarut.fivecard.R
 import com.visarut.fivecard.databinding.PlayFramentBinding
-import com.visarut.fivecard.domain.model.CardData
 import com.visarut.fivecard.domain.model.PlayerData
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -34,9 +33,9 @@ class PlayFramgent : Fragment() {
 
         binding.epoxyList.setController(playFragmentController)
 
-        viewModel.cardList.observe(viewLifecycleOwner, {
-            val cardData = CardData(viewModel.cardList)
-            playFragmentController.setData(cardData)
+        viewModel.playerList.observe(viewLifecycleOwner, {
+            val playerData = PlayerData(viewModel.playerList)
+            playFragmentController.setData(playerData)
         })
 
         return binding.root
