@@ -9,21 +9,27 @@ class DeckRepositoryImpl: DeckRepository {
 
     private val allSuite = listOf(Suit.Clubs,Suit.Diamonds,Suit.Hearts,Suit.Spades)
 
-    private var deck = listOf<Card>()
+    private var deck = mutableListOf<Card>()
 
     init {
         createCardDeck()
     }
     override fun getRandomCard(amount: Int): List<Card> {
-        var list = emptyList<Card>()
-        for (i in 1..amount) list += deck.random()
+        createCardDeck()
+        val list = emptyList<Card>().toMutableList()
+        for (i in 1..amount) {
+            val randomCard = (0 until deck.size).random()
+            list += deck[randomCard]
+            deck.remove(deck[randomCard])
+        }
         return list
     }
 
     private fun createCardDeck() {
+        deck.clear()
         for (suite in allSuite)  {
             for (number in allNumber)  {
-                deck += Card(number, suite)
+                deck.add(Card(number, suite))
             }
         }
     }

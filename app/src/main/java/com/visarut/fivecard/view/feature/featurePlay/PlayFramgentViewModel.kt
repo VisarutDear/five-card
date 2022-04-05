@@ -20,7 +20,7 @@ class PlayFramgentViewModel(
     }
 
     fun updateCard() {
-        cardList.value = getRandomCardUseCase.getRandomCard(5)
+        cardList.value = getRandomCardUseCase.getRandomCard(20)
         Log.d("test","${cardList.value}")
     }
 
