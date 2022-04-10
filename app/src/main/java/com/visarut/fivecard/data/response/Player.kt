@@ -4,5 +4,7 @@ import androidx.lifecycle.MutableLiveData
 
 data class Player(
     val name: String,
-    var cardList: List<Card>
+    var cardList: List<Card>,
+    val twoCard: TwoCard?,
+//    val threeCard: ThreeCard?
 )

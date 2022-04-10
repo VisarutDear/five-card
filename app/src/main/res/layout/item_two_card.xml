@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="point"
+            type="String" />
+
+        <variable
+            name="suited"
+            type="String" />
+
+        <variable
+            name="highCard"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{point}"
+            tools:text="point : 2"/>
+
+        <TextView
+            android:id="@+id/tv_suited"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{suited}"
+            tools:text="suited"/>
+
+        <TextView
+            android:id="@+id/tv_high_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{highCard}"
+            tools:text="7 heart"/>
+
+    </LinearLayout>
+
+</layout>

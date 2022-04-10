@@ -6,7 +6,6 @@ import com.visarut.fivecard.data.response.Suit
 class DeckRepositoryImpl: DeckRepository {
 
     private val allNumber = listOf("2","3","4","5","6","7","8","9","10","J","Q","K","A")
-
     private val allSuite = listOf(Suit.Clubs,Suit.Diamonds,Suit.Hearts,Suit.Spades)
 
     private var deck = mutableListOf<Card>()
@@ -27,9 +26,22 @@ class DeckRepositoryImpl: DeckRepository {
 
     private fun createCardDeck() {
         deck.clear()
-        for (suite in allSuite)  {
-            for (number in allNumber)  {
-                deck.add(Card(number, suite))
+        val zeroPointList = listOf("10", "J", "Q", "K")
+        var index = 0
+        for (number in allNumber)   {
+            for (suite in allSuite)  {
+                when {
+                    number in zeroPointList -> {
+                        deck.add(Card(number, suite, index, 0))
+                    }
+                    number === "A" -> {
+                        deck.add(Card(number, suite, index, 1))
+                    }
+                    else -> {
+                        deck.add(Card(number, suite, index, number.toInt()))
+                    }
+                }
+                index++
             }
         }
     }

@@ -4,7 +4,25 @@ enum class Suit {
     Clubs, Diamonds, Hearts, Spades
 }
 
+//enum class CardValue {
+//    Two,
+//    Three,
+//    Four,
+//    Five,
+//    Six,
+//    Seven,
+//    Eight,
+//    Nine,
+//    Ten,
+//    Jack,
+//    Queen,
+//    King,
+//    Ace,
+//}
+
 data class Card(
-    val number: String,
+    val name: String,
     val suit: Suit,
+    val index: Int,
+    val value: Int,
 )

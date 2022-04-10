@@ -17,7 +17,7 @@ class PlayHomeController() : TypedEpoxyController<PlayerData>() {
             player.cardList.mapIndexed { index2, card ->
                 CardDeckBindingModel_().apply {
                     id("card${index2}_${player.name}")
-                    number(card.number)
+                    number(card.name)
                     suit(card.suit)
                 }
             }
@@ -34,11 +34,21 @@ class PlayHomeController() : TypedEpoxyController<PlayerData>() {
                 player.cardList.mapIndexed { index2, card ->
                     CardDeckBindingModel_().apply {
                         id("card_player_${index2}")
-                        number(card.number)
+                        number(card.name)
                         suit(card.suit)
                     }
                 }.apply {
                     models(this)
+                }
+            }
+
+            player.twoCard?.let {
+
+                twoCard {
+                    id("two_card_${index}")
+                    point("${it.point % 10}")
+                    suited("")
+                    highCard("${it.highCard.name} ${it.highCard.suit}")
                 }
             }
 
