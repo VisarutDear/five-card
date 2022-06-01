@@ -1,5 +1,6 @@
 package com.visarut.fivecard.view.feature.featurePlay
 
+import android.util.Log
 import com.airbnb.epoxy.TypedEpoxyController
 import com.airbnb.epoxy.carousel
 import com.visarut.fivecard.*
@@ -43,11 +44,12 @@ class PlayHomeController() : TypedEpoxyController<PlayerData>() {
             }
 
             player.twoCard?.let {
-
+                Log.d("test", it.toString())
+                val isSuited = if(it.suited) { "suited" } else { "" }
                 twoCard {
                     id("two_card_${index}")
                     point("${it.point % 10}")
-                    suited("")
+                    suited(isSuited)
                     highCard("${it.highCard.name} ${it.highCard.suit}")
                 }
             }

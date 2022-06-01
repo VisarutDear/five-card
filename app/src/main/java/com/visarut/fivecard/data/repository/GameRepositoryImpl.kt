@@ -9,12 +9,12 @@ class GameRepositoryImpl: GameRepository {
         val sortedList = sortCard(cardList)
         var point = 0
         var isSuited = false
-        val prevSuit: Suit? = null
+        var prevSuit: Suit? = null
         var highestCard: Card? = null
         sortedList.forEach {
             point += it.value
             if (prevSuit == null) {
-                it.suit
+                prevSuit = it.suit
             } else {
                 if(prevSuit === it.suit) {
                     isSuited = true

@@ -28,7 +28,7 @@ class PlayFramgentViewModel(
 //        Log.d("test","${cardList.value}")
     }
 
-    fun mockPlayerAndCard() {
+    private fun mockPlayerAndCard() {
         val player1 = Player("p1", selectCard(0,5), getTwoCard(selectCard(0,2)))
         val player2 = Player("p2", selectCard(5,10), getTwoCard(selectCard(5,7)))
         val player3 = Player("p3", selectCard(10,15), getTwoCard(selectCard(10,12)))
@@ -36,7 +36,7 @@ class PlayFramgentViewModel(
         playerList.value = listOf(player1, player2, player3, player4)
     }
 
-    fun selectCard(from: Int, until: Int): List<Card> {
+    private fun selectCard(from: Int, until: Int): List<Card> {
         return cardList.value?.subList(from, until) ?: emptyList()
     }
 
