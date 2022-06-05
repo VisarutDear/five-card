@@ -9,6 +9,7 @@ import com.visarut.fivecard.data.response.TwoCard
 import com.visarut.fivecard.domain.model.PlayerData
 import com.visarut.fivecard.domain.usecase.GetRandomCardUseCase
 import com.visarut.fivecard.domain.usecase.GetTwoCardUseCase
+import java.util.*
 
 class PlayFramgentViewModel(
     val getRandomCardUseCase: GetRandomCardUseCase,
@@ -29,10 +30,29 @@ class PlayFramgentViewModel(
     }
 
     private fun mockPlayerAndCard() {
-        val player1 = Player("p1", selectCard(0,5), getTwoCard(selectCard(0,2)))
-        val player2 = Player("p2", selectCard(5,10), getTwoCard(selectCard(5,7)))
-        val player3 = Player("p3", selectCard(10,15), getTwoCard(selectCard(10,12)))
-        val player4 = Player("p4", selectCard(15,20), getTwoCard(selectCard(15,17)))
+        val player1 = Player(
+            "p1",
+            UUID.randomUUID().toString(),
+            selectCard(0,5),
+            getTwoCard(selectCard(0,2))
+        )
+        val player2 = Player(
+            "p2",
+            UUID.randomUUID().toString(),
+            selectCard(5,10),
+            getTwoCard(selectCard(5,7))
+        )
+        val player3 = Player("p3",
+            UUID.randomUUID().toString(),
+            selectCard(10,15),
+            getTwoCard(selectCard(10,12))
+        )
+        val player4 = Player(
+            "p4",
+            UUID.randomUUID().toString(),
+            selectCard(15,20),
+            getTwoCard(selectCard(15,17))
+        )
         playerList.value = listOf(player1, player2, player3, player4)
     }
 
